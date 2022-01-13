@@ -146,6 +146,7 @@ export class AssessmentReportModelBuilder {
             }
 
             function getAssistedData(): InstanceReportModel[] {
+                //Extract the comment field and add it to this report
                 if (storeData.generatedAssessmentInstancesMap == null) {
                     return [];
                 }

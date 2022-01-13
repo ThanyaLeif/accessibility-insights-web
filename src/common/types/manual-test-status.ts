@@ -7,7 +7,7 @@ export enum ManualTestStatus {
 }
 
 export interface ManualTestStatusData {
-    [key: string]: TestStepData;
+    [key: string]: TestStepData; //ID of the requirement
 }
 
 export interface TestStepData {

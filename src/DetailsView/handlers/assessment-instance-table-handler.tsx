@@ -146,6 +146,7 @@ export class AssessmentInstanceTableHandler {
         return this.assessmentTableColumnConfigHandler.getColumnConfigsForCapturedInstances();
     }
 
+    //Esto es una arrow function que retorna un elemento JSX que toma como parametros instance, key y assesmentNavState
     private renderChoiceGroup = (
         instance: GeneratedAssessmentInstance,
         key: string,
