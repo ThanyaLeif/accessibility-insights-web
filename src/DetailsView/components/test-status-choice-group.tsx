@@ -58,7 +58,10 @@ export class TestStatusChoiceGroup extends React.Component<
                     />
                 </div>
 
-                <div>{this.renderUndoButton()}</div>
+                <div>
+                    {this.renderUndoButton()}
+                    {this.renderCommentButton()}
+                </div>
             </div>
         );
     }
@@ -92,6 +95,18 @@ export class TestStatusChoiceGroup extends React.Component<
         );
     }
 
+    private renderCommentButton(): JSX.Element | null {
+        if (this.props.originalStatus == null) {
+            return null;
+        }
+        return (
+            <Link className={styles.undoButton} onClick={this.onCommentClicked}>
+                {/* Change the icon to chat */}
+                <Icon className={styles.undoButtonIcon} iconName="undo" ariaLabel={'undo'} />
+            </Link>
+        );
+    }
+
     protected compomentRef = (component: IChoiceGroup): void => {
         this.choiceGroup = component;
     };
@@ -110,5 +125,10 @@ export class TestStatusChoiceGroup extends React.Component<
         this.setState({ selectedKey: ManualTestStatus[ManualTestStatus.UNKNOWN] });
         this.choiceGroup.focus();
         this.props.onUndoClicked(this.props.test, this.props.step, this.props.selector);
+    };
+
+    protected onCommentClicked = (): void => {
+        console.log('clicked');
+        //Create method to open the side panel for the comment
     };
 }
