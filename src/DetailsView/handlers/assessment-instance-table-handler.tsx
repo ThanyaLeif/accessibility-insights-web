@@ -14,6 +14,7 @@ import { PathSnippetStoreData } from 'common/types/store-data/path-snippet-store
 import { VisualizationType } from 'common/types/visualization-type';
 import { IColumn } from 'office-ui-fabric-react';
 import * as React from 'react';
+import { instanceDetails } from 'reports/assessment-report.scss';
 import { DictionaryStringTo } from 'types/common-types';
 import { DetailsViewActionMessageCreator } from '../actions/details-view-action-message-creator';
 import { AssessmentInstanceEditAndRemoveControl } from '../components/assessment-instance-edit-and-remove-control';
@@ -159,8 +160,9 @@ export class AssessmentInstanceTableHandler {
                 selector={key}
                 status={instance.testStepResults[step].status}
                 originalStatus={instance.testStepResults[step].originalStatus}
-                onGroupChoiceChange={this.detailsViewActionMessageCreator.changeManualTestStatus}
+                onGroupChoiceChange={this.detailsViewActionMessageCreator.changeManualTestStatus} //This updates data
                 onUndoClicked={this.detailsViewActionMessageCreator.undoManualTestStatusChange}
+                commentState={instance.testStepResults[step].userComment}
             />
         );
     };

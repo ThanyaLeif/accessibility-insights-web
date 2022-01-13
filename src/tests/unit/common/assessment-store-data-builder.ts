@@ -23,7 +23,7 @@ export class AssessmentsStoreDataBuilder extends BaseDataBuilder<AssessmentStore
         initialAssessmentStoreDataGenerator?: InitialAssessmentStoreDataGenerator,
     ) {
         super();
-        this.data = new AssessmentStore(
+        this.data = new AssessmentStore( //Esto viene del archivo assessment-result-data
             null,
             null,
             dataConverter,

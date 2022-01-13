@@ -19,6 +19,8 @@ export type PersistedTabInfo = Tab & {
 export interface AssessmentStoreData {
     persistedTabInfo: PersistedTabInfo;
     assessments: {
+        //Esto parece ser un map, donde el key es un string y el valor es un AssessmentData
+        //Maybe imprube the name to testId
         [key: string]: AssessmentData;
     };
     assessmentNavState: AssessmentNavState;
@@ -32,7 +34,7 @@ export interface AssessmentData {
     fullAxeResultsMap: any;
     generatedAssessmentInstancesMap?: InstanceIdToInstanceDataMap;
     manualTestStepResultMap?: RequirementIdToResultMap;
-    testStepStatus: ManualTestStatusData;
+    testStepStatus: ManualTestStatusData; //Same as requirements
     scanIncompleteWarnings?: ScanIncompleteWarningId[];
 }
 
@@ -50,8 +52,9 @@ export interface UserCapturedInstance {
 }
 
 export interface GeneratedAssessmentInstance<T = {}, K = {}> {
+    //T -> propertyBagT or properties
     target: string[];
-    html: string;
+    html: string; //The snipped
     testStepResults: AssessmentResultType<K>;
     propertyBag?: T;
 }
@@ -65,6 +68,8 @@ export interface TestStepResult {
     isVisualizationEnabled: boolean;
     isVisible: boolean;
     originalStatus?: ManualTestStatus;
+    userComment?: string; //check compatibility and make it optional
+    //Allow the user to add a comment
 }
 
 export interface AssessmentNavState {
