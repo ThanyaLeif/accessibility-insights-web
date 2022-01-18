@@ -11,31 +11,37 @@ import { VisualizationType } from '../../common/types/visualization-type';
 import * as styles from './test-status-choice-group.scss';
 
 export interface TestStatusChoiceGroupProps {
-    test: VisualizationType;
-    step: string;
+    test: VisualizationType; //Si es un test tipo heading, link, etc...
+    step: string; //Maybe el paso del test en el que va, like (7.1 Links relacionados, or something)
     selector?: string;
-    status: ManualTestStatus;
+    status: ManualTestStatus; //Si es unknow, pass or fail
     originalStatus: number;
     isLabelVisible?: boolean;
-    onGroupChoiceChange: (status, test, step, selector?) => void;
-    onUndoClicked: (test, step, selector?) => void;
+    onGroupChoiceChange: (status, test, step, selector?) => void; //Un metodo que va a necesitar saber el status del group, el tipo de test, el paso y el selector (lo que sea que eso signifique)
+    onUndoClicked: (test, step, selector?) => void; //Un metodo que necesita saber el tipo de test, el paso y el selector
 }
 
 interface ChoiceGroupState {
     selectedKey: string;
+    commentState: string; //voy a usar esto para saber si el comment es unknow | commented | new
 }
 
 export class TestStatusChoiceGroup extends React.Component<
-    TestStatusChoiceGroupProps,
-    ChoiceGroupState
+    //Esta parte del codigo es similar a cuando especificas que una queue va a ser de strings -> queue<string>
+    TestStatusChoiceGroupProps, //Estas son las props, que pueden tomar cualquier forma porque depende de la estructura de la clase
+    ChoiceGroupState //Estos son los estados
 > {
     protected choiceGroup: IChoiceGroup;
 
     constructor(props) {
         super(props);
-        this.state = { selectedKey: ManualTestStatus[this.props.status] };
+        this.state = {
+            selectedKey: ManualTestStatus[this.props.status], //Esto monitorea el cambio del boton  (unknow | pass | fail), ahora es capaz de usarlos como si fueran parte de la clase porque las pasamos en los brackets
+            commentState: ManualTestStatus[this.props.status],
+        };
     }
 
+    //Este metodo checka si el estado de los botones cambio, pero no creo que sea relevante para el comment
     public componentDidUpdate(prevProps: Readonly<TestStatusChoiceGroupProps>): void {
         if (isEqual(prevProps, this.props) === false) {
             this.setState(() => ({ selectedKey: ManualTestStatus[this.props.status] }));
@@ -96,13 +102,14 @@ export class TestStatusChoiceGroup extends React.Component<
     }
 
     private renderCommentButton(): JSX.Element | null {
+        //isAddCommentButtonEnabled: boolean = this.state.selectedKey == true;
         if (this.props.originalStatus == null) {
             return null;
         }
         return (
             <Link className={styles.undoButton} onClick={this.onCommentClicked}>
                 {/* Change the icon to chat */}
-                <Icon className={styles.undoButtonIcon} iconName="undo" ariaLabel={'undo'} />
+                <Icon className={styles.undoButtonIcon} iconName="commentFill" ariaLabel={'undo'} />
             </Link>
         );
     }

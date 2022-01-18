@@ -21,6 +21,8 @@ export function initializeFabricIcons(): void {
             cancel: '\uE711',
             cat: '\uED7F',
             cellPhone: '\uE8EA',
+            comment: '\uE901',
+            commentFill: '\uF344',
             checkBox: '\uE739',
             checkMark: '\uE73E',
             chevronDown: '\uE70D',
