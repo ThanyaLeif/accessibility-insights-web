@@ -9,7 +9,7 @@ import {
 import * as React from 'react';
 
 export interface ManualCheckFailedInstancePanelProps {
-    algo: string;
+    //something: string; //Add the needed properties here
 }
 
 export const ManualCheckFailedInstancePanel = NamedFC<ManualCheckFailedInstancePanelProps>(

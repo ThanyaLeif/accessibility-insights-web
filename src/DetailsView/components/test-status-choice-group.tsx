@@ -1,5 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
+import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
 import { isEqual } from 'lodash';
 import { ChoiceGroup, IChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react';
 import { Icon } from 'office-ui-fabric-react';
@@ -134,8 +135,9 @@ export class TestStatusChoiceGroup extends React.Component<
         this.props.onUndoClicked(this.props.test, this.props.step, this.props.selector);
     };
 
-    protected onCommentClicked = (): void => {
+    protected onCommentClicked(): JSX.Element {
         console.log('clicked');
+        return <ManualCheckFailedInstancePanel />;
         //Create method to open the side panel for the comment
-    };
+    }
 }
