@@ -25,6 +25,7 @@ export interface AssessmentStoreData {
     };
     assessmentNavState: AssessmentNavState;
     resultDescription: string;
+    addFailureInstancePanelOpen: boolean;
 }
 
 export type InstanceIdToInstanceDataMap = DictionaryStringTo<GeneratedAssessmentInstance>;
@@ -36,7 +37,6 @@ export interface AssessmentData {
     manualTestStepResultMap?: RequirementIdToResultMap;
     testStepStatus: ManualTestStatusData; //Same as requirements
     scanIncompleteWarnings?: ScanIncompleteWarningId[];
-    addFailureInstancePanelOpen?: boolean;
 }
 
 export interface ManualTestStepResult {

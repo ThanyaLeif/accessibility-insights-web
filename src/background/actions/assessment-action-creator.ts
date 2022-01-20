@@ -316,6 +316,7 @@ export class AssessmentActionCreator {
         this.assessmentActions.updateSelectedPivotChild.invoke(payload);
     };
 
+    //Chance the name
     public createNewFailureInstancePanel: (payload: ToggleFailurePanelPayload) => void = payload =>
         this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
 }

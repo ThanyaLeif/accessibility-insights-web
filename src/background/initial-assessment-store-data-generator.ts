@@ -41,6 +41,7 @@ export class InitialAssessmentStoreDataGenerator {
             },
             assessments: this.constructInitialDataForAssessment(persistedTests),
             resultDescription: resultDescription,
+            addFailureInstancePanelOpen: false,
         };
 
         return state as AssessmentStoreData;
@@ -55,6 +56,8 @@ export class InitialAssessmentStoreDataGenerator {
             const persistedTestData = persistedTests && persistedTests[test.key];
             assessmentData[test.key] = test.initialDataCreator(test, persistedTestData);
         });
+
+        //Add inicialization of the comment
 
         return assessmentData;
     }
