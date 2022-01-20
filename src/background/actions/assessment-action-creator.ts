@@ -28,6 +28,7 @@ import {
     SelectTestSubviewPayload,
     ToggleActionPayload,
     LoadAssessmentPayload,
+    ToggleFailurePanelPayload,
 } from './action-payloads';
 import { AssessmentActions } from './assessment-actions';
 
@@ -311,6 +312,6 @@ export class AssessmentActionCreator {
         this.assessmentActions.updateSelectedPivotChild.invoke(payload);
     };
 
-    public createNewFailureInstancePanel: (payload: string) => void = payload =>
+    public createNewFailureInstancePanel: (payload: ToggleFailurePanelPayload) => void = payload =>
         this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
 }
