@@ -146,6 +146,10 @@ export class AssessmentActionCreator {
             AssessmentMessages.SaveAssessment,
             this.onSaveAssessment,
         );
+        this.interpreter.registerTypeToPayloadCallback(
+            AssessmentMessages.SaveAssessment,
+            this.createNewFailureInstancePanel,
+        );
     }
 
     private onContinuePreviousAssessment = (payload: BaseActionPayload, tabId: number): void => {

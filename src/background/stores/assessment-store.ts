@@ -546,6 +546,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
             .forType(payload.test)
             .getVisualizationConfiguration();
         const assessmentData = config.getAssessmentData(this.state);
+        assessmentData.addFailureInstancePanelOpen = !payload.isOpen;
         this.emitChanged();
     }
 }
