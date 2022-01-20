@@ -163,6 +163,9 @@ export class AssessmentInstanceTableHandler {
                 originalStatus={instance.testStepResults[step].originalStatus}
                 onGroupChoiceChange={this.detailsViewActionMessageCreator.changeManualTestStatus} //This updates data
                 onUndoClicked={this.detailsViewActionMessageCreator.undoManualTestStatusChange}
+                onAddFailureInstanceClicked={_ =>
+                    this.detailsViewActionMessageCreator.createNewFailureInstancePanel(item.id)
+                }
                 //commentState={instance.testStepResults[step].userComment}
             />
         );

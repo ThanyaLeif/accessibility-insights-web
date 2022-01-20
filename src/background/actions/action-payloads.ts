@@ -51,6 +51,10 @@ export interface AssessmentToggleActionPayload extends ToggleActionPayload {
     requirement: string;
 }
 
+export interface ToggleFailurePanelPayload extends AssessmentToggleActionPayload {
+    isOpen: boolean;
+}
+
 export interface AssessmentActionInstancePayload extends AssessmentToggleActionPayload {
     selector: string;
 }

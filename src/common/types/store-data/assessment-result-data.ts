@@ -36,6 +36,7 @@ export interface AssessmentData {
     manualTestStepResultMap?: RequirementIdToResultMap;
     testStepStatus: ManualTestStatusData; //Same as requirements
     scanIncompleteWarnings?: ScanIncompleteWarningId[];
+    addFailureInstancePanelOpen?: boolean;
 }
 
 export interface ManualTestStepResult {

@@ -310,4 +310,7 @@ export class AssessmentActionCreator {
     private onPivotChildSelected = (payload: OnDetailsViewOpenPayload): void => {
         this.assessmentActions.updateSelectedPivotChild.invoke(payload);
     };
+
+    public createNewFailureInstancePanel: (payload: string) => void = payload =>
+        this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
 }

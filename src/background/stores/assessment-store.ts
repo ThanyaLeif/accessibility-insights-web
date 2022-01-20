@@ -28,6 +28,7 @@ import {
     ExpandTestNavPayload,
     LoadAssessmentPayload,
     SelectTestSubviewPayload,
+    ToggleFailurePanelPayload,
 } from '../actions/action-payloads';
 import { AssessmentDataConverter } from '../assessment-data-converter';
 import { InitialAssessmentStoreDataGenerator } from '../initial-assessment-store-data-generator';
@@ -123,6 +124,9 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
             this.onContinuePreviousAssessment,
         );
         this.assessmentActions.LoadAssessment.addListener(this.onLoadAssessment);
+        this.assessmentActions.ToggleFailureInstancePanel.addListener(
+            this.onToggleFailureInstancePanel,
+        );
     }
 
     private updateTargetTabWithId(tabId: number): void {
@@ -535,5 +539,13 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
         } else {
             testStepStatus.stepFinalResult = manualResult.status;
         }
+    }
+
+    private onToggleFailureInstancePanel(payload: ToggleFailurePanelPayload): void {
+        const config = this.assessmentsProvider
+            .forType(payload.test)
+            .getVisualizationConfiguration();
+        const assessmentData = config.getAssessmentData(this.state);
+        this.emitChanged();
     }
 }

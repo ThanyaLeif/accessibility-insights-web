@@ -1,5 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
+import { SupportedMouseEvent } from 'common/telemetry-data-factory';
 import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
 import { isEqual } from 'lodash';
 import { ChoiceGroup, IChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react';
@@ -20,6 +21,7 @@ export interface TestStatusChoiceGroupProps {
     isLabelVisible?: boolean;
     onGroupChoiceChange: (status, test, step, selector?) => void; //Un metodo que va a necesitar saber el status del group, el tipo de test, el paso y el selector (lo que sea que eso signifique)
     onUndoClicked: (test, step, selector?) => void; //Un metodo que necesita saber el tipo de test, el paso y el selector
+    onAddFailureInstanceClicked?: (ev: SupportedMouseEvent) => void;
 }
 
 interface ChoiceGroupState {
@@ -108,9 +110,9 @@ export class TestStatusChoiceGroup extends React.Component<
             return null;
         }
         return (
-            <Link className={styles.undoButton} onClick={this.onCommentClicked}>
+            <Link className={styles.undoButton} onClick={this.props.onAddFailureInstanceClicked}>
                 {/* Change the icon to chat */}
-                <Icon className={styles.undoButtonIcon} iconName="commentFill" ariaLabel={'undo'} />
+                <Icon className={styles.undoButtonIcon} iconName="comment" ariaLabel={'undo'} />
             </Link>
         );
     }

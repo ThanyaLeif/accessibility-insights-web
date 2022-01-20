@@ -49,4 +49,5 @@ export class AssessmentActions {
     public readonly updateTargetTabId = new Action<number>();
     public readonly continuePreviousAssessment = new Action<number>();
     public readonly LoadAssessment = new Action<LoadAssessmentPayload>();
+    public readonly ToggleFailureInstancePanel = new Action<string>();
 }
