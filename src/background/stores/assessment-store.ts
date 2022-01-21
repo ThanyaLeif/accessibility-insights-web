@@ -542,11 +542,12 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
     }
 
     private onToggleFailureInstancePanel(payload: ToggleFailurePanelPayload): void {
-        const config = this.assessmentsProvider
+        //Commenting this few lines because the addFailureInstancePanel was move to StoreData instead of AssessmentData
+        /*const config = this.assessmentsProvider
             .forType(payload.test)
             .getVisualizationConfiguration();
-        const assessmentData = config.getAssessmentData(this.state);
-        assessmentData.addFailureInstancePanelOpen = !payload.isOpen;
+        const assessmentData = config.getAssessmentData(this.state);*/
+        this.state.addFailureInstancePanelOpen = !payload.isOpen;
         this.emitChanged();
     }
 }
