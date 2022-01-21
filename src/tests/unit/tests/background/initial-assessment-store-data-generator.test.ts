@@ -104,6 +104,7 @@ describe('InitialAssessmentStoreDataGenerator.generateInitialState', () => {
                 assessmentNavState: null,
                 assessments: null,
                 resultDescription: '',
+                addFailureInstancePanelOpen: false,
             });
 
             expect(generatedState.persistedTabInfo.appRefreshed).toBe(true);
@@ -116,6 +117,7 @@ describe('InitialAssessmentStoreDataGenerator.generateInitialState', () => {
             assessmentNavState: null,
             assessments: null,
             resultDescription: '',
+            addFailureInstancePanelOpen: false,
         });
 
         const { appRefreshed, ...tabInfoPropertiesThatShouldPropagate } = validTargetTab;

@@ -93,6 +93,7 @@ describe('DetailsViewBody', () => {
                 },
                 persistedTabInfo: {} as PersistedTabInfo,
                 resultDescription: '',
+                addFailureInstancePanelOpen: false,
             } as AssessmentStoreData;
 
             props = {

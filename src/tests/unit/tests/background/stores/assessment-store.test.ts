@@ -177,6 +177,7 @@ describe('AssessmentStore', () => {
                 selectedTestSubview: expectedTestStep,
             },
             resultDescription: '',
+            addFailureInstancePanelOpen: false,
         };
 
         const defaultValues: Partial<AssessmentData> = {
@@ -193,6 +194,7 @@ describe('AssessmentStore', () => {
                 selectedTestSubview: expectedTestStep,
             },
             resultDescription: '',
+            addFailureInstancePanelOpen: false,
         };
 
         assessments.forEach(assessment => {

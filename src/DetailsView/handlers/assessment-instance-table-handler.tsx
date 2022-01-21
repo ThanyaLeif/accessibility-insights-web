@@ -38,6 +38,8 @@ export class AssessmentInstanceTableHandler {
         this.assessmentsProvider = assessmentsProvider;
     }
 
+    public ToggleFailureInstancePanel = (isOpen: boolean): void => {};
+
     public changeRequirementStatus = (
         status: ManualTestStatus,
         test: VisualizationType,
@@ -164,7 +166,7 @@ export class AssessmentInstanceTableHandler {
                 onGroupChoiceChange={this.detailsViewActionMessageCreator.changeManualTestStatus} //This updates data
                 onUndoClicked={this.detailsViewActionMessageCreator.undoManualTestStatusChange}
                 onAddFailureInstanceClicked={_ =>
-                    this.detailsViewActionMessageCreator.createNewFailureInstancePanel(item.id)
+                    this.detailsViewActionMessageCreator.createNewFailureInstancePanel(step)
                 }
                 //commentState={instance.testStepResults[step].userComment}
             />

@@ -23,7 +23,7 @@ export class AssessmentsStoreDataBuilder extends BaseDataBuilder<AssessmentStore
         initialAssessmentStoreDataGenerator?: InitialAssessmentStoreDataGenerator,
     ) {
         super();
-        this.data = new AssessmentStore( //Esto viene del archivo assessment-result-data
+        this.data = new AssessmentStore(
             null,
             null,
             dataConverter,
@@ -46,6 +46,7 @@ export class AssessmentsStoreDataBuilder extends BaseDataBuilder<AssessmentStore
             assessments: {},
             assessmentNavState: { selectedTestType: null, selectedTestSubview: null },
             resultDescription: '',
+            addFailureInstancePanelOpen: false,
         };
 
         this.storeDataGeneratorMock

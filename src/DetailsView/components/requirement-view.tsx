@@ -19,6 +19,7 @@ import {
     AssessmentViewUpdateHandlerProps,
 } from 'DetailsView/components/assessment-view-update-handler';
 import { RequirementTableSection } from 'DetailsView/components/left-nav/requirement-table-section';
+import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
 import { NextRequirementButton } from 'DetailsView/components/next-requirement-button';
 import { RequirementInstructions } from 'DetailsView/components/requirement-instructions';
 import {
@@ -142,6 +143,7 @@ export class RequirementView extends React.Component<RequirementViewProps> {
                             }
                         />
                     </div>
+                    <ManualCheckFailedInstancePanel />
                 </div>
                 <NextRequirementButton
                     deps={this.props.deps}

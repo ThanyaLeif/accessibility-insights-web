@@ -40,10 +40,6 @@ import { DetailsViewRightContentPanelType } from '../components/left-nav/details
 const messages = Messages.Visualizations;
 
 export class DetailsViewActionMessageCreator extends DevToolActionMessageCreator {
-    //Yo cree este metodo
-    createNewFailureInstancePanel(id: any): void {
-        throw new Error('Method not implemented.');
-    }
     public closePreviewFeaturesPanel = (): void => {
         const messageType = Messages.PreviewFeatures.ClosePanel;
         const telemetry = this.telemetryFactory.fromDetailsViewNoTriggeredBy();
@@ -82,6 +78,11 @@ export class DetailsViewActionMessageCreator extends DevToolActionMessageCreator
             payload,
         });
     };
+
+    //Yo cree este metodo
+    createNewFailureInstancePanel(id: any): void {
+        //const messageType = Messages.SettingsPanel.ClosePanel;
+    }
 
     public setFeatureFlag = (
         featureFlagId: string,

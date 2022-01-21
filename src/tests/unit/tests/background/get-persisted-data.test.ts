@@ -24,6 +24,7 @@ describe('GetPersistedDataTest', () => {
             assessments: null,
             persistedTabInfo: {} as PersistedTabInfo,
             resultDescription: '',
+            addFailureInstancePanelOpen: false,
         };
         userConfigurationData = {
             isFirstTime: true,
