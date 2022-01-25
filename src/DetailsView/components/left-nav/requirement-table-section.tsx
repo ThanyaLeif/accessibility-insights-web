@@ -13,13 +13,19 @@ import {
 import { FeatureFlagStoreData } from 'common/types/store-data/feature-flag-store-data';
 import { PathSnippetStoreData } from 'common/types/store-data/path-snippet-store-data';
 import { AssessmentInstanceTable } from 'DetailsView/components/assessment-instance-table';
-import { ManualTestStepView } from 'DetailsView/components/manual-test-step-view';
+import {
+    ManualTestStepView,
+    ManualTestStepViewDeps,
+} from 'DetailsView/components/manual-test-step-view';
 import { AssessmentInstanceTableHandler } from 'DetailsView/handlers/assessment-instance-table-handler';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react';
 import * as React from 'react';
 import { DictionaryStringTo } from 'types/common-types';
 
+export type RequirementTableSectionDeps = {} & ManualTestStepViewDeps;
+
 export type RequirementTableSectionProps = {
+    deps: RequirementTableSectionDeps;
     assessmentNavState: AssessmentNavState;
     requirement: Requirement;
     instancesMap: DictionaryStringTo<GeneratedAssessmentInstance>;
@@ -40,6 +46,7 @@ export const RequirementTableSection = NamedFC<RequirementTableSectionProps>(
         if (props.requirement.isManual) {
             return (
                 <ManualTestStepView
+                    deps={props.deps}
                     test={props.assessmentNavState.selectedTestType}
                     step={props.assessmentNavState.selectedTestSubview}
                     manualTestStepResultMap={props.manualRequirementResultMap}

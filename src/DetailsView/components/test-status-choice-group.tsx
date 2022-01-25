@@ -21,12 +21,12 @@ export interface TestStatusChoiceGroupProps {
     isLabelVisible?: boolean;
     onGroupChoiceChange: (status, test, step, selector?) => void; //Un metodo que va a necesitar saber el status del group, el tipo de test, el paso y el selector (lo que sea que eso signifique)
     onUndoClicked: (test, step, selector?) => void; //Un metodo que necesita saber el tipo de test, el paso y el selector
-    onAddFailureInstanceClicked?: (ev: SupportedMouseEvent) => void;
+    onAddFailureInstanceClicked: (ev: SupportedMouseEvent) => void;
 }
 
 interface ChoiceGroupState {
     selectedKey: string;
-    commentState: string; //voy a usar esto para saber si el comment es unknow | commented | new
+    //commentState: string; //voy a usar esto para saber si el comment es unknow | commented | new
 }
 
 export class TestStatusChoiceGroup extends React.Component<
@@ -40,7 +40,7 @@ export class TestStatusChoiceGroup extends React.Component<
         super(props);
         this.state = {
             selectedKey: ManualTestStatus[this.props.status], //Esto monitorea el cambio del boton  (unknow | pass | fail), ahora es capaz de usarlos como si fueran parte de la clase porque las pasamos en los brackets
-            commentState: ManualTestStatus[this.props.status],
+            //commentState: ManualTestStatus[this.props.status],
         };
     }
 

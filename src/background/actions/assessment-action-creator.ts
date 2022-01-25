@@ -321,12 +321,12 @@ export class AssessmentActionCreator {
         this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
     };
 
-    public onCreateNewFailureInstance = (payload: ToggleFailurePanelPayload): void => {
-        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(payload);
+    public onCreateNewFailureInstance = (step: string): void => {
+        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(step);
     };
 
     public onEditExistingFailureInstance = (payload: ToggleFailurePanelPayload): void => {
-        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(payload);
+        this.assessmentActions.onEditExistingFailureInstance.invoke(payload);
     };
 
     public onDismissPanel = (): void => {

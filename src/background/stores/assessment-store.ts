@@ -564,7 +564,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
 
     //Check if we really need to have a payload here, it seems like is just needed when you're editing
     private onCreateNewFailureInstancePanel = (
-        payload: ToggleFailurePanelPayload,
+        step: string,
         /*Add args related to panel state and test step*/
     ) => {
         this.state.addFailureInstancePanelOpen = true;

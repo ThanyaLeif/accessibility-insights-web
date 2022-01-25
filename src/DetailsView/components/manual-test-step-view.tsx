@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 import { AssessmentsProvider } from 'assessments/types/assessments-provider';
+import { AssessmentActionCreator } from 'background/actions/assessment-action-creator';
 import { CapturedInstanceActionType } from 'common/types/captured-instance-action-type';
 import { FailureInstanceData } from 'common/types/failure-instance-data';
 import { ManualTestStatus } from 'common/types/manual-test-status';
@@ -16,6 +17,7 @@ import { FailureInstancePanelControl } from './failure-instance-panel-control';
 import { TestStatusChoiceGroup } from './test-status-choice-group';
 
 export interface ManualTestStepViewProps {
+    deps: ManualTestStepViewDeps;
     step: string;
     test: VisualizationType;
     assessmentInstanceTableHandler: AssessmentInstanceTableHandler;
@@ -25,9 +27,14 @@ export interface ManualTestStepViewProps {
     pathSnippetStoreData: PathSnippetStoreData;
 }
 
+export type ManualTestStepViewDeps = {
+    assessmentActionCreator: AssessmentActionCreator;
+};
+
 export class ManualTestStepView extends React.Component<ManualTestStepViewProps> {
     public render(): JSX.Element {
         const status = this.props.manualTestStepResultMap[this.props.step].status;
+        const deps = this.props.deps;
         return (
             <React.Fragment>
                 <div className="test-step-choice-group-container">
@@ -43,6 +50,9 @@ export class ManualTestStepView extends React.Component<ManualTestStepViewProps>
                             this.props.assessmentInstanceTableHandler.undoRequirementStatusChange
                         }
                         isLabelVisible={true}
+                        onAddFailureInstanceClicked={_ =>
+                            deps.assessmentActionCreator.onCreateNewFailureInstance(this.props.step)
+                        }
                     />
                 </div>
                 <div className="manual-test-step-table-container">{this.renderTable(status)}</div>

@@ -20,6 +20,7 @@ import {
 } from 'DetailsView/components/assessment-view-update-handler';
 import { RequirementTableSection } from 'DetailsView/components/left-nav/requirement-table-section';
 import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
+import { ManualTestStepViewDeps } from 'DetailsView/components/manual-test-step-view';
 import { NextRequirementButton } from 'DetailsView/components/next-requirement-button';
 import { RequirementInstructions } from 'DetailsView/components/requirement-instructions';
 import {
@@ -36,7 +37,8 @@ export type RequirementViewDeps = {
     assessmentsProvider: AssessmentsProvider;
     assessmentDefaultMessageGenerator: AssessmentDefaultMessageGenerator;
 } & RequirementViewTitleDeps &
-    AssessmentViewUpdateHandlerDeps;
+    AssessmentViewUpdateHandlerDeps &
+    ManualTestStepViewDeps;
 
 export interface RequirementViewProps {
     deps: RequirementViewDeps;
@@ -123,6 +125,7 @@ export class RequirementView extends React.Component<RequirementViewProps> {
                         {visualHelperToggle}
                         <RequirementInstructions howToTest={requirement.howToTest} />
                         <RequirementTableSection
+                            deps={this.props.deps}
                             requirement={requirement}
                             assessmentNavState={this.props.assessmentNavState}
                             instancesMap={this.props.assessmentData.generatedAssessmentInstancesMap}
