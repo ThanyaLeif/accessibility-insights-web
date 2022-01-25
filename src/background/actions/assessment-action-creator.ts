@@ -330,6 +330,6 @@ export class AssessmentActionCreator {
     };
 
     public onDismissPanel = (): void => {
-        this.assessmentActions.onDismissPanel.invoke();
+        this.assessmentActions.onDismissPanel.invoke(null);
     };
 }
