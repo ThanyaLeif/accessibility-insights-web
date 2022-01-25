@@ -550,4 +550,27 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
         this.state.addFailureInstancePanelOpen = !payload.isOpen;
         this.emitChanged();
     }
+
+    //Create 3 listeners, that handles onCreate, onDismiss and onEdit events for InstancePanel
+    //Also need to check which information is handled for this class, in order to take it
+    //as a parameter in the listener bellow and update the intended information
+
+    //Check if we really need to have a payload here, it seems like is just needed when you're editing
+    private onCreateNewFailureInstancePanel = (
+        payload: ToggleFailurePanelPayload,
+        /*Add args related to panel state and test step*/
+    ) => {
+        this.state.addFailureInstancePanelOpen = true;
+        this.emitChanged();
+    };
+
+    private onEditExistingFailureInstance = (payload: ToggleFailurePanelPayload) => {
+        this.state.addFailureInstancePanelOpen = true;
+        this.emitChanged();
+    };
+
+    private onDismissPanel = () => {
+        this.state.addFailureInstancePanelOpen = false;
+        this.emitChanged();
+    };
 }

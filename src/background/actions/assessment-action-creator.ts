@@ -148,7 +148,7 @@ export class AssessmentActionCreator {
         );
         this.interpreter.registerTypeToPayloadCallback(
             AssessmentMessages.SaveAssessment,
-            this.createNewFailureInstancePanel,
+            this.toggleFailureInstancePanel,
         );
     }
 
@@ -317,6 +317,19 @@ export class AssessmentActionCreator {
     };
 
     //Chance the name
-    public createNewFailureInstancePanel: (payload: ToggleFailurePanelPayload) => void = payload =>
+    public toggleFailureInstancePanel = (payload: ToggleFailurePanelPayload): void => {
         this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
+    };
+
+    public onCreateNewFailureInstance = (payload: ToggleFailurePanelPayload): void => {
+        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(payload);
+    };
+
+    public onEditExistingFailureInstance = (payload: ToggleFailurePanelPayload): void => {
+        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(payload);
+    };
+
+    public onDismissPanel = (): void => {
+        this.assessmentActions.onDismissPanel.invoke();
+    };
 }
