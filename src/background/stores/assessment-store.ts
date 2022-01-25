@@ -127,6 +127,13 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
         this.assessmentActions.ToggleFailureInstancePanel.addListener(
             this.onToggleFailureInstancePanel,
         );
+        this.assessmentActions.onCreateNewFailureInstancePanel.addListener(
+            this.onCreateNewFailureInstancePanel,
+        );
+        this.assessmentActions.onEditExistingFailureInstance.addListener(
+            this.onEditExistingFailureInstance,
+        );
+        this.assessmentActions.onDismissPanel.addListener(this.onDismissPanel);
     }
 
     private updateTargetTabWithId(tabId: number): void {
