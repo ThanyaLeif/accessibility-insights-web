@@ -109,6 +109,9 @@ export const Messages = {
         LoadAssessment: `${messagePrefix}/assessment/loadAssessment`,
         LoadAssessmentFinishedUpload: `${messagePrefix}/assessment/loadAssessmentFinishedUpload`,
         SaveAssessment: `${messagePrefix}/assessment/saveAssessment`,
+        ShowFailureInstancePanel: `${messagePrefix}/assessment/showFailureInstancePanel`,
+        EditExistingFailureInstancePanel: `${messagePrefix}/assessment/editExistingFailureInstancePanel`,
+        DismissPanel: `${messagePrefix}/assessment/dismissPanel`,
     },
 
     FeatureFlags: {

@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 import { AssessmentsProvider } from 'assessments/types/assessments-provider';
 import { InstanceTableRow } from 'assessments/types/instance-table-data';
+import { AssessmentActionCreator } from 'background/actions/assessment-action-creator';
 import { FailureInstanceData } from 'common/types/failure-instance-data';
 import { ManualTestStatus } from 'common/types/manual-test-status';
 import {
@@ -27,6 +28,7 @@ export class AssessmentInstanceTableHandler {
     private detailsViewActionMessageCreator: DetailsViewActionMessageCreator;
     private assessmentTableColumnConfigHandler: AssessmentTableColumnConfigHandler;
     private assessmentsProvider: AssessmentsProvider;
+    private assessmentActionCreator: AssessmentActionCreator;
 
     constructor(
         detailsViewActionMessageCreator: DetailsViewActionMessageCreator,
@@ -74,6 +76,10 @@ export class AssessmentInstanceTableHandler {
 
     public updateFocusedTarget(target: string[]): void {
         this.detailsViewActionMessageCreator.updateFocusedInstanceTarget(target);
+    }
+
+    public showFailureInstancePanel(step: string): void {
+        this.detailsViewActionMessageCreator.showFailureInstancePanel(step);
     }
 
     public createAssessmentInstanceTableItems(
@@ -165,9 +171,7 @@ export class AssessmentInstanceTableHandler {
                 originalStatus={instance.testStepResults[step].originalStatus}
                 onGroupChoiceChange={this.detailsViewActionMessageCreator.changeManualTestStatus} //This updates data
                 onUndoClicked={this.detailsViewActionMessageCreator.undoManualTestStatusChange}
-                onAddFailureInstanceClicked={_ =>
-                    this.detailsViewActionMessageCreator.createNewFailureInstancePanel(step)
-                }
+                onAddFailureInstanceClicked={_ => this.showFailureInstancePanel(step)}
                 //commentState={instance.testStepResults[step].userComment}
             />
         );

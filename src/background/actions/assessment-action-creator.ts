@@ -150,6 +150,18 @@ export class AssessmentActionCreator {
             AssessmentMessages.SaveAssessment,
             this.toggleFailureInstancePanel,
         );
+        this.interpreter.registerTypeToPayloadCallback(
+            AssessmentMessages.ShowFailureInstancePanel,
+            this.onShowFailureInstancePanel,
+        );
+        this.interpreter.registerTypeToPayloadCallback(
+            AssessmentMessages.EditExistingFailureInstancePanel,
+            this.onEditExistingFailureInstancePanel,
+        );
+        this.interpreter.registerTypeToPayloadCallback(
+            AssessmentMessages.DismissPanel,
+            this.onDismissPanel,
+        );
     }
 
     private onContinuePreviousAssessment = (payload: BaseActionPayload, tabId: number): void => {
@@ -317,19 +329,19 @@ export class AssessmentActionCreator {
     };
 
     //Chance the name
-    public toggleFailureInstancePanel = (payload: ToggleFailurePanelPayload): void => {
+    private toggleFailureInstancePanel = (payload: ToggleFailurePanelPayload): void => {
         this.assessmentActions.ToggleFailureInstancePanel.invoke(payload);
     };
 
-    public onCreateNewFailureInstance = (step: string): void => {
-        this.assessmentActions.onCreateNewFailureInstancePanel.invoke(step);
+    private onShowFailureInstancePanel = (step: string): void => {
+        this.assessmentActions.onShowFailureInstancePanel.invoke(step);
     };
 
-    public onEditExistingFailureInstance = (payload: ToggleFailurePanelPayload): void => {
-        this.assessmentActions.onEditExistingFailureInstance.invoke(payload);
+    private onEditExistingFailureInstancePanel = (payload: ToggleFailurePanelPayload): void => {
+        this.assessmentActions.onEditExistingFailureInstancePanel.invoke(payload);
     };
 
-    public onDismissPanel = (): void => {
+    private onDismissPanel = (): void => {
         this.assessmentActions.onDismissPanel.invoke(null);
     };
 }

@@ -127,7 +127,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
         this.assessmentActions.ToggleFailureInstancePanel.addListener(
             this.onToggleFailureInstancePanel,
         );
-        this.assessmentActions.onCreateNewFailureInstancePanel.addListener(
+        this.assessmentActions.onShowFailureInstancePanel.addListener(
             this.onShowFailureInstancePanel,
         );
         this.assessmentActions.onEditExistingFailureInstance.addListener(

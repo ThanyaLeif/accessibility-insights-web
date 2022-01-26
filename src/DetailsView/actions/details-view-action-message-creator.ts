@@ -673,4 +673,33 @@ export class DetailsViewActionMessageCreator extends DevToolActionMessageCreator
             this.telemetryFactory.forLeftNavPanelExpanded(event),
         );
     };
+
+    public showFailureInstancePanel = (step: string): void => {
+        const messageType = Messages.Assessment.ShowFailureInstancePanel;
+
+        this.dispatcher.dispatchMessage({
+            messageType: messageType,
+            step,
+        });
+    };
+
+    public editExistingFailureInstance = (test: VisualizationType): void => {
+        const messageType = Messages.Assessment.EditExistingFailureInstancePanel;
+        const payload: ToggleActionPayload = {
+            test,
+        };
+
+        this.dispatcher.dispatchMessage({
+            messageType: messageType,
+            payload,
+        });
+    };
+
+    public dismissPanel = (): void => {
+        const messageType = Messages.Assessment.DismissPanel;
+
+        this.dispatcher.dispatchMessage({
+            messageType: messageType,
+        });
+    };
 }

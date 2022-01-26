@@ -51,7 +51,7 @@ export class AssessmentActions {
     public readonly continuePreviousAssessment = new Action<number>();
     public readonly LoadAssessment = new Action<LoadAssessmentPayload>();
     public readonly ToggleFailureInstancePanel = new Action<ToggleFailurePanelPayload>();
-    public readonly onCreateNewFailureInstancePanel = new Action<string>();
+    public readonly onShowFailureInstancePanel = new Action<string>();
     public readonly onEditExistingFailureInstance = new Action<ToggleFailurePanelPayload>();
     public readonly onDismissPanel = new Action<null>();
 }

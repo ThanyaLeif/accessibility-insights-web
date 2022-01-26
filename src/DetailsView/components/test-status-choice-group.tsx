@@ -29,21 +29,19 @@ interface ChoiceGroupState {
 }
 
 export class TestStatusChoiceGroup extends React.Component<
-    //Esta parte del codigo es similar a cuando especificas que una queue va a ser de strings -> queue<string>
-    TestStatusChoiceGroupProps, //Estas son las props, que pueden tomar cualquier forma porque depende de la estructura de la clase
-    ChoiceGroupState //Estos son los estados
+    TestStatusChoiceGroupProps,
+    ChoiceGroupState
 > {
     protected choiceGroup: IChoiceGroup;
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedKey: ManualTestStatus[this.props.status], //Esto monitorea el cambio del boton  (unknow | pass | fail), ahora es capaz de usarlos como si fueran parte de la clase porque las pasamos en los brackets
+            selectedKey: ManualTestStatus[this.props.status],
             //commentState: ManualTestStatus[this.props.status],
         };
     }
 
-    //Este metodo checka si el estado de los botones cambio, pero no creo que sea relevante para el comment
     public componentDidUpdate(prevProps: Readonly<TestStatusChoiceGroupProps>): void {
         if (isEqual(prevProps, this.props) === false) {
             this.setState(() => ({ selectedKey: ManualTestStatus[this.props.status] }));
