@@ -79,11 +79,6 @@ export class DetailsViewActionMessageCreator extends DevToolActionMessageCreator
         });
     };
 
-    //Yo cree este metodo
-    createNewFailureInstancePanel(id: any): void {
-        //const messageType = Messages.SettingsPanel.ClosePanel;
-    }
-
     public setFeatureFlag = (
         featureFlagId: string,
         enabled: boolean,

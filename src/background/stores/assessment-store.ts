@@ -128,7 +128,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
             this.onToggleFailureInstancePanel,
         );
         this.assessmentActions.onCreateNewFailureInstancePanel.addListener(
-            this.onCreateNewFailureInstancePanel,
+            this.onShowFailureInstancePanel,
         );
         this.assessmentActions.onEditExistingFailureInstance.addListener(
             this.onEditExistingFailureInstance,
@@ -563,7 +563,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
     //as a parameter in the listener bellow and update the intended information
 
     //Check if we really need to have a payload here, it seems like is just needed when you're editing
-    private onCreateNewFailureInstancePanel = (
+    private onShowFailureInstancePanel = (
         step: string,
         /*Add args related to panel state and test step*/
     ) => {

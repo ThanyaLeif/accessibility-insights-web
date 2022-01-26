@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 import { SupportedMouseEvent } from 'common/telemetry-data-factory';
-import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
 import { isEqual } from 'lodash';
 import { ChoiceGroup, IChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react';
 import { Icon } from 'office-ui-fabric-react';
@@ -13,14 +12,14 @@ import { VisualizationType } from '../../common/types/visualization-type';
 import * as styles from './test-status-choice-group.scss';
 
 export interface TestStatusChoiceGroupProps {
-    test: VisualizationType; //Si es un test tipo heading, link, etc...
-    step: string; //Maybe el paso del test en el que va, like (7.1 Links relacionados, or something)
+    test: VisualizationType;
+    step: string;
     selector?: string;
-    status: ManualTestStatus; //Si es unknow, pass or fail
+    status: ManualTestStatus;
     originalStatus: number;
     isLabelVisible?: boolean;
-    onGroupChoiceChange: (status, test, step, selector?) => void; //Un metodo que va a necesitar saber el status del group, el tipo de test, el paso y el selector (lo que sea que eso signifique)
-    onUndoClicked: (test, step, selector?) => void; //Un metodo que necesita saber el tipo de test, el paso y el selector
+    onGroupChoiceChange: (status, test, step, selector?) => void;
+    onUndoClicked: (test, step, selector?) => void;
     onAddFailureInstanceClicked: (ev: SupportedMouseEvent) => void;
 }
 
@@ -136,10 +135,4 @@ export class TestStatusChoiceGroup extends React.Component<
         this.choiceGroup.focus();
         this.props.onUndoClicked(this.props.test, this.props.step, this.props.selector);
     };
-
-    protected onCommentClicked(): JSX.Element {
-        console.log('clicked');
-        return <ManualCheckFailedInstancePanel />;
-        //Create method to open the side panel for the comment
-    }
 }
