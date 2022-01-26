@@ -51,6 +51,7 @@ export class ManualTestStepView extends React.Component<ManualTestStepViewProps>
                         }
                         isLabelVisible={true}
                         onAddFailureInstanceClicked={_ =>
+                            //Need to check how to transform this into a mouse event
                             deps.assessmentActionCreator.onCreateNewFailureInstance(this.props.step)
                         }
                     />
