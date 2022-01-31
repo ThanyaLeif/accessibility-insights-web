@@ -20,7 +20,6 @@ import {
 } from 'DetailsView/components/assessment-view-update-handler';
 import { RequirementTableSection } from 'DetailsView/components/left-nav/requirement-table-section';
 import { ManualCheckFailedInstancePanel } from 'DetailsView/components/manual-check-failed-instance-panel';
-import { ManualTestStepViewDeps } from 'DetailsView/components/manual-test-step-view';
 import { NextRequirementButton } from 'DetailsView/components/next-requirement-button';
 import { RequirementInstructions } from 'DetailsView/components/requirement-instructions';
 import {
@@ -37,8 +36,7 @@ export type RequirementViewDeps = {
     assessmentsProvider: AssessmentsProvider;
     assessmentDefaultMessageGenerator: AssessmentDefaultMessageGenerator;
 } & RequirementViewTitleDeps &
-    AssessmentViewUpdateHandlerDeps &
-    ManualTestStepViewDeps;
+    AssessmentViewUpdateHandlerDeps;
 
 export interface RequirementViewProps {
     deps: RequirementViewDeps;

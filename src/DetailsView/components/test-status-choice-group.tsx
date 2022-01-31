@@ -1,6 +1,5 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-import { SupportedMouseEvent } from 'common/telemetry-data-factory';
 import { isEqual } from 'lodash';
 import { ChoiceGroup, IChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react';
 import { Icon } from 'office-ui-fabric-react';
@@ -20,7 +19,7 @@ export interface TestStatusChoiceGroupProps {
     isLabelVisible?: boolean;
     onGroupChoiceChange: (status, test, step, selector?) => void;
     onUndoClicked: (test, step, selector?) => void;
-    onAddFailureInstanceClicked: (ev: SupportedMouseEvent) => void;
+    onAddFailureInstanceClicked: (step) => void;
 }
 
 interface ChoiceGroupState {
