@@ -554,7 +554,7 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
             .forType(payload.test)
             .getVisualizationConfiguration();
         const assessmentData = config.getAssessmentData(this.state);*/
-        this.state.addFailureInstancePanelOpen = !payload.isOpen;
+        this.state.isFailureInstancePanelOpen = !payload.isOpen;
         this.emitChanged();
     }
 
@@ -567,17 +567,17 @@ export class AssessmentStore extends BaseStoreImpl<AssessmentStoreData> {
         step: string,
         /*Add args related to panel state and test step*/
     ) => {
-        this.state.addFailureInstancePanelOpen = true;
+        this.state.isFailureInstancePanelOpen = true;
         this.emitChanged();
     };
 
     private onEditExistingFailureInstance = (payload: ToggleFailurePanelPayload) => {
-        this.state.addFailureInstancePanelOpen = true;
+        this.state.isFailureInstancePanelOpen = true;
         this.emitChanged();
     };
 
     private onDismissPanel = () => {
-        this.state.addFailureInstancePanelOpen = false;
+        this.state.isFailureInstancePanelOpen = false;
         this.emitChanged();
     };
 }

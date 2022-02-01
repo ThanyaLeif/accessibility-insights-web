@@ -41,7 +41,7 @@ export class InitialAssessmentStoreDataGenerator {
             },
             assessments: this.constructInitialDataForAssessment(persistedTests),
             resultDescription: resultDescription,
-            addFailureInstancePanelOpen: false,
+            isFailureInstancePanelOpen: false,
         };
 
         return state as AssessmentStoreData;

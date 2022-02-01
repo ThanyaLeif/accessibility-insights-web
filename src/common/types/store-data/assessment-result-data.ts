@@ -25,7 +25,7 @@ export interface AssessmentStoreData {
     };
     assessmentNavState: AssessmentNavState;
     resultDescription: string;
-    addFailureInstancePanelOpen: boolean;
+    isFailureInstancePanelOpen: boolean;
 }
 
 export type InstanceIdToInstanceDataMap = DictionaryStringTo<GeneratedAssessmentInstance>;

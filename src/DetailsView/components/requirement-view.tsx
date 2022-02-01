@@ -8,6 +8,7 @@ import { Tab } from 'common/itab';
 import {
     AssessmentData,
     AssessmentNavState,
+    AssessmentStoreData,
     PersistedTabInfo,
 } from 'common/types/store-data/assessment-result-data';
 import { FeatureFlagStoreData } from 'common/types/store-data/feature-flag-store-data';
@@ -49,6 +50,7 @@ export interface RequirementViewProps {
     assessmentData: AssessmentData;
     currentTarget: Tab;
     prevTarget: PersistedTabInfo;
+    assessmentStoreData: AssessmentStoreData;
 }
 
 export class RequirementView extends React.Component<RequirementViewProps> {
@@ -144,7 +146,9 @@ export class RequirementView extends React.Component<RequirementViewProps> {
                             }
                         />
                     </div>
-                    <ManualCheckFailedInstancePanel />
+                    <ManualCheckFailedInstancePanel
+                        assessmentStoreData={this.props.assessmentStoreData}
+                    />
                 </div>
                 <NextRequirementButton
                     deps={this.props.deps}

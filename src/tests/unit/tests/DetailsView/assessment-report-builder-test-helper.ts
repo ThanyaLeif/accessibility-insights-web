@@ -182,7 +182,7 @@ export class AssessmentReportBuilderTestHelper {
             },
             assessmentNavState: null,
             resultDescription: '',
-            addFailureInstancePanelOpen: false,
+            isFailureInstancePanelOpen: false,
         } as AssessmentStoreData;
     }
 

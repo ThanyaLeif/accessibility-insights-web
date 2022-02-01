@@ -46,7 +46,7 @@ export class AssessmentsStoreDataBuilder extends BaseDataBuilder<AssessmentStore
             assessments: {},
             assessmentNavState: { selectedTestType: null, selectedTestSubview: null },
             resultDescription: '',
-            addFailureInstancePanelOpen: false,
+            isFailureInstancePanelOpen: false,
         };
 
         this.storeDataGeneratorMock

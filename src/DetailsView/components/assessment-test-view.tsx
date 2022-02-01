@@ -89,6 +89,7 @@ export const AssessmentTestView = NamedFC<AssessmentTestViewProps>(
                         assessmentData={assessmentData}
                         currentTarget={currentTarget}
                         prevTarget={prevTarget}
+                        assessmentStoreData={props.assessmentStoreData}
                     />
                 )}
             </>

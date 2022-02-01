@@ -64,7 +64,7 @@ describe('WebVisualizationConfigurationFactory', () => {
             },
             assessmentNavState: null,
             resultDescription: '',
-            addFailureInstancePanelOpen: false,
+            isFailureInstancePanelOpen: false,
         };
         const selectorMap = {
             selector: {},
